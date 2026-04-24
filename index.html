@@ -12,24 +12,36 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             font-family: 'Playfair Display', serif;
+            overflow-x: hidden; /* Prevents side-scrolling */
         }
 
         .card {
-            padding: 40px 80px;
+            padding: 20px; /* Reduced padding for mobile */
             border: 1px solid #1a1a1a;
             border-radius: 15px;
             background: #050505;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 90vw; /* Keeps the card within the screen width */
+            text-align: center;
         }
 
         h1 {
-            color: #007FFF; /* Bright Azure */
-            font-size: 8rem;
+            color: #007FFF; 
+            /* Fluid typography: minimum 3rem, scales with width, max 8rem */
+            font-size: clamp(3rem, 15vw, 8rem); 
             margin: 0;
             letter-spacing: -2px;
             text-shadow: 0 0 20px rgba(0, 127, 255, 0.3);
+            white-space: nowrap; /* Keeps the name on one line */
+        }
+
+        /* Desktop Adjustment */
+        @media (min-width: 768px) {
+            .card {
+                padding: 40px 80px;
+            }
         }
     </style>
 </head>
